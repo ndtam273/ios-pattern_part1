@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="F1F-v3-Jsn">
+            <objects>
+                <viewController id="6ON-ji-fvk" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Ifd-QV-0rC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="XJD-dL-xSN"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="gwf-3m-lHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-688" y="60"/>
+        </scene>
+        <!--Question View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="QuestionViewController" customModule="RabbleWabble" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC" customClass="QuestionView" customModule="RabbleWabble" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKf-Tr-ggL">
+                                <rect key="frame" x="137" y="200" width="140" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsm-9t-d6s">
+                                <rect key="frame" x="184.5" y="278" width="45" height="30"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="25"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enu-2R-WvM">
+                                <rect key="frame" x="134.5" y="385" width="145" height="54"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="45"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Pon-PA-PBZ">
+                                <rect key="frame" x="305" y="780" width="19" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="systemGreenColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UHR-qr-8pB">
+                                <rect key="frame" x="90" y="780" width="19" height="36"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <color key="textColor" systemColor="systemRedColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uRI-zq-LZw">
+                                <rect key="frame" x="59.5" y="678" width="80" height="80"/>
+                                <state key="normal" backgroundImage="ic_circle_x"/>
+                                <connections>
+                                    <action selector="handleIncorrect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="s1e-Ob-mUA"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RxJ-1n-dvg">
+                                <rect key="frame" x="274.5" y="678" width="80" height="80"/>
+                                <state key="normal" backgroundImage="ic_circle_plus"/>
+                                <connections>
+                                    <action selector="handleCorrect:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cZM-GN-us9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="pKf-Tr-ggL" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="1fM-6o-OnP"/>
+                            <constraint firstItem="UHR-qr-8pB" firstAttribute="top" secondItem="uRI-zq-LZw" secondAttribute="bottom" constant="22" id="50e-Ys-Uqw"/>
+                            <constraint firstItem="UHR-qr-8pB" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="90" id="B7N-tj-V0T"/>
+                            <constraint firstItem="UHR-qr-8pB" firstAttribute="centerX" secondItem="uRI-zq-LZw" secondAttribute="centerX" id="Eka-mD-gOi"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="Pon-PA-PBZ" secondAttribute="trailing" constant="90" id="HWh-cH-a4M"/>
+                            <constraint firstItem="Pon-PA-PBZ" firstAttribute="centerY" secondItem="UHR-qr-8pB" secondAttribute="centerY" id="Hl8-aS-vEg"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="UHR-qr-8pB" secondAttribute="bottom" constant="46" id="PYe-Nc-qtL"/>
+                            <constraint firstItem="RxJ-1n-dvg" firstAttribute="centerY" secondItem="uRI-zq-LZw" secondAttribute="centerY" id="Uqi-KC-6Ml"/>
+                            <constraint firstItem="Zsm-9t-d6s" firstAttribute="top" secondItem="pKf-Tr-ggL" secondAttribute="bottom" constant="24" id="Ygk-OS-Eq5"/>
+                            <constraint firstItem="Zsm-9t-d6s" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="bLR-f1-wsU"/>
+                            <constraint firstItem="enu-2R-WvM" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lhs-uH-VHm"/>
+                            <constraint firstItem="Pon-PA-PBZ" firstAttribute="centerX" secondItem="RxJ-1n-dvg" secondAttribute="centerX" id="nM1-rP-8uZ"/>
+                            <constraint firstItem="pKf-Tr-ggL" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="156" id="oUN-hm-BYq"/>
+                            <constraint firstItem="Pon-PA-PBZ" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="UHR-qr-8pB" secondAttribute="trailing" constant="8" symbolic="YES" id="one-h8-ALq"/>
+                            <constraint firstItem="enu-2R-WvM" firstAttribute="top" secondItem="Zsm-9t-d6s" secondAttribute="bottom" constant="77" id="z5M-Wh-So5"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="answerLabel" destination="enu-2R-WvM" id="WeO-F5-vgU"/>
+                            <outlet property="correctCountLabel" destination="Pon-PA-PBZ" id="RC2-kJ-fUf"/>
+                            <outlet property="hintLabel" destination="Zsm-9t-d6s" id="1ab-gg-Ll6"/>
+                            <outlet property="incorrectCountLabel" destination="UHR-qr-8pB" id="xBP-Mm-7N1"/>
+                            <outlet property="promptLabel" destination="pKf-Tr-ggL" id="a7s-iJ-gSx"/>
+                            <outletCollection property="gestureRecognizers" destination="Dg3-SZ-YIJ" appends="YES" id="u7L-Eo-Nub"/>
+                        </connections>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="Dg3-SZ-YIJ">
+                    <connections>
+                        <action selector="toggleAnswerLabels:" destination="BYZ-38-t0r" id="jew-d3-XRY"/>
+                    </connections>
+                </tapGestureRecognizer>
+            </objects>
+            <point key="canvasLocation" x="40.579710144927539" y="59.598214285714285"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="ic_circle_plus" width="80" height="80"/>
+        <image name="ic_circle_x" width="80" height="80"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemRedColor">
+            <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
+</document>
