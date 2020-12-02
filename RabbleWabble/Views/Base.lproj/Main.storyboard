@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vPa-Fb-crH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
@@ -8,10 +8,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Select Question Group-->
         <scene sceneID="F1F-v3-Jsn">
             <objects>
-                <viewController id="6ON-ji-fvk" sceneMemberID="viewController">
+                <viewController id="6ON-ji-fvk" customClass="SelectQuestionGroupViewController" customModule="RabbleWabble" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ifd-QV-0rC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -20,7 +20,7 @@
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="xG7-B4-Ct1">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="QuestionGroupCell" id="xG7-B4-Ct1" customClass="QuestionGroupCell" customModule="RabbleWabble" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="xG7-B4-Ct1" id="sJq-JX-9jL">
@@ -52,8 +52,17 @@
                                                 <constraint firstItem="Bfh-dp-Jhg" firstAttribute="leading" secondItem="Upv-PA-wiA" secondAttribute="trailing" priority="250" constant="8" symbolic="YES" id="qpa-94-Byi"/>
                                             </constraints>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="percentageLabel" destination="Bfh-dp-Jhg" id="VeZ-RT-Ln5"/>
+                                            <outlet property="titleLabel" destination="Upv-PA-wiA" id="8Bf-ye-89b"/>
+                                            <segue destination="BYZ-38-t0r" kind="show" id="Zl7-5I-aGZ"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="6ON-ji-fvk" id="ocs-NG-7tA"/>
+                                    <outlet property="delegate" destination="6ON-ji-fvk" id="y6N-Va-qVy"/>
+                                </connections>
                             </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="XJD-dL-xSN"/>
@@ -65,10 +74,14 @@
                             <constraint firstItem="EMP-hU-GFL" firstAttribute="top" secondItem="Ifd-QV-0rC" secondAttribute="top" id="pg7-82-1Ke"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="Select Question Group" id="fxa-62-Hy6"/>
+                    <connections>
+                        <outlet property="tableView" destination="EMP-hU-GFL" id="dmN-Am-kyy"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwf-3m-lHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-688.40579710144937" y="59.598214285714285"/>
+            <point key="canvasLocation" x="221.73913043478262" y="59.598214285714285"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -79,19 +92,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Prompt" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pKf-Tr-ggL">
-                                <rect key="frame" x="137" y="200" width="140" height="54"/>
+                                <rect key="frame" x="137" y="244" width="140" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Hint" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Zsm-9t-d6s">
-                                <rect key="frame" x="184.5" y="278" width="45" height="30"/>
+                                <rect key="frame" x="184.5" y="322" width="45" height="30"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Answer" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enu-2R-WvM">
-                                <rect key="frame" x="134.5" y="385" width="145" height="54"/>
+                                <rect key="frame" x="134.5" y="429" width="145" height="54"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="45"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -152,6 +165,7 @@
                             <outletCollection property="gestureRecognizers" destination="Dg3-SZ-YIJ" appends="YES" id="u7L-Eo-Nub"/>
                         </connections>
                     </view>
+                    <navigationItem key="navigationItem" id="uSe-M3-V5G"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="Dg3-SZ-YIJ">
@@ -160,7 +174,25 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="40.579710144927539" y="59.598214285714285"/>
+            <point key="canvasLocation" x="950.72463768115949" y="59.598214285714285"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="bRM-QN-H03">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="vPa-Fb-crH" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="MTF-Qg-Ds0">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6ON-ji-fvk" kind="relationship" relationship="rootViewController" id="j3Q-ej-nLD"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="v3y-23-YYa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-688.40579710144937" y="59.598214285714285"/>
         </scene>
     </scenes>
     <resources>
