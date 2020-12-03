@@ -41,7 +41,7 @@ public class RandomQuestionStrategy: QuestionStrategy {
     }
     
     public func currentQuestion() -> Question {
-        return questionGroup.questions[questionIndex]
+        return questions[questionIndex]
     }
     
     public func markQuestionCorrect(_ question: Question) {

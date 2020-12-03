@@ -60,6 +60,7 @@ public class QuestionViewController: UIViewController {
     }
     private func showQuestion() {
         let question = questionStrategy.currentQuestion()
+        print(questionStrategy!)
         print(question)
         
         questionView.answerLabel.text = question.answer

@@ -48,7 +48,7 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
     tableView.deselectRow(at: indexPath, animated: true)
         
     }
-    // prepare segue for pass data , move to childe view controller
+    // prepare segue for pass data , move to child view controller
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? QuestionViewController else { return }
         viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
