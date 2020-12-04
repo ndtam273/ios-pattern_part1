@@ -17,8 +17,15 @@ public class SelectQuestionGroupViewController: UIViewController {
     }
     
     // MARK: - Properties
-    public let questionGroups = QuestionGroup.allGroups()
-    private var selectedQuestionGroup: QuestionGroup!
+    private let appSettings = AppSettings.shared
+    private let questionGroupCaretaker = QuestionGroupCaretaker()
+    public var questionGroups : [QuestionGroup] {
+        return questionGroupCaretaker.questionGroups
+    }
+    private var selectedQuestionGroup: QuestionGroup {
+        get { return questionGroupCaretaker.selectedQuestionGroup }
+        set { questionGroupCaretaker.selectedQuestionGroup = newValue }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -51,7 +58,7 @@ extension SelectQuestionGroupViewController: UITableViewDelegate {
     // prepare segue for pass data , move to child view controller
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         guard let viewController = segue.destination as? QuestionViewController else { return }
-        viewController.questionStrategy = RandomQuestionStrategy(questionGroup: selectedQuestionGroup)
+        viewController.questionStrategy = appSettings.questionStrategy(for: selectedQuestionGroup)
         viewController.delegate = self
         
     }

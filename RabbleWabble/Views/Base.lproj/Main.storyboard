@@ -74,7 +74,13 @@
                             <constraint firstItem="EMP-hU-GFL" firstAttribute="top" secondItem="Ifd-QV-0rC" secondAttribute="top" id="pg7-82-1Ke"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Question Group" id="fxa-62-Hy6"/>
+                    <navigationItem key="navigationItem" title="Select Question Group" id="fxa-62-Hy6">
+                        <barButtonItem key="leftBarButtonItem" image="ic_settings" id="o5R-wr-cAS">
+                            <connections>
+                                <segue destination="mK3-pJ-NDh" kind="show" id="87X-k1-yhq"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EMP-hU-GFL" id="dmN-Am-kyy"/>
                     </connections>
@@ -82,6 +88,35 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gwf-3m-lHG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="221.73913043478262" y="59.598214285714285"/>
+        </scene>
+        <!--App Settings-->
+        <scene sceneID="iKZ-j5-r4b">
+            <objects>
+                <tableViewController title="App Settings" id="mK3-pJ-NDh" customClass="AppSettingsViewController" customModule="RabbleWabble" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="PMq-6v-gUW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="WDg-ie-Bgu">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="WDg-ie-Bgu" id="ktk-ZQ-X1Z">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="mK3-pJ-NDh" id="3Oe-dG-Dbd"/>
+                            <outlet property="delegate" destination="mK3-pJ-NDh" id="mhT-oP-CK6"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="py7-nd-m14"/>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LMH-bG-qVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="223" y="707"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -198,6 +233,7 @@
     <resources>
         <image name="ic_circle_plus" width="80" height="80"/>
         <image name="ic_circle_x" width="80" height="80"/>
+        <image name="ic_settings" width="26" height="26"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
