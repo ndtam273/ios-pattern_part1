@@ -13,13 +13,13 @@ public class BaseQuestionStrategy: QuestionStrategy {
     
     
     public var correctCount: Int {
-        get { return questionGroup.score.incorrectCount }
-        set { questionGroup.score.incorrectCount = newValue }
+        get { return questionGroup.score.correctCount }
+        set { questionGroup.score.correctCount = newValue }
     }
     
     public var incorrectCount: Int {
-        get { return questionGroup.score.correctCount }
-        set { questionGroup.score.correctCount = newValue }
+        get { return questionGroup.score.incorrectCount }
+        set { questionGroup.score.incorrectCount = newValue }
     }
     
     private var questionGroupCaretaker: QuestionGroupCaretaker
@@ -30,16 +30,26 @@ public class BaseQuestionStrategy: QuestionStrategy {
     private var questionIndex = 0
     private let questions: [Question]
     
+    //MARK: - OBject Lifecycle
+    public init(questionGroupCaretaker: QuestionGroupCaretaker, questions: [Question]) {
+        self.questionGroupCaretaker = questionGroupCaretaker
+        self.questions = questions
+        
+        self.questionGroupCaretaker.selectedQuestionGroup.score.reset()
+    }
+    
     // MARK: - Questrion Strategy
     public var title: String {
         return questionGroup.title
     }
     
     public func advanceToNextQuesion() -> Bool {
+        try? questionGroupCaretaker.save()
         guard questionIndex + 1 < questions.count else {
             return false
         }
         questionIndex += 1
+        return true
     }
     
     public func currentQuestion() -> Question {
@@ -49,15 +59,15 @@ public class BaseQuestionStrategy: QuestionStrategy {
     }
     
     public func markQuestionCorrect(_ question: Question) {
-        <#code#>
+        correctCount += 1
     }
     
     public func markQuestionIncorrect(_ question: Question) {
-        <#code#>
+        incorrectCount += 1
     }
     
     public func questionIndexTitle() -> String {
-        <#code#>
+        return "\(questionIndex + 1)/\(questions.count)"
     }
     
     

@@ -80,6 +80,11 @@
                                 <segue destination="mK3-pJ-NDh" kind="show" id="87X-k1-yhq"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="AHz-Fg-nug">
+                            <connections>
+                                <segue destination="aNV-Zl-kRC" kind="presentation" id="psb-W4-QWh"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EMP-hU-GFL" id="dmN-Am-kyy"/>
@@ -117,6 +122,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LMH-bG-qVJ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="223" y="707"/>
+        </scene>
+        <!--NewQuestionGroup-->
+        <scene sceneID="2qv-2y-TBM">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewQuestionGroup" id="aNV-Zl-kRC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="64I-6w-jXg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="607" y="-306"/>
         </scene>
         <!--Question View Controller-->
         <scene sceneID="tne-QT-ifu">

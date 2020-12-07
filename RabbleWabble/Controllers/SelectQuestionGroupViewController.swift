@@ -26,6 +26,15 @@ public class SelectQuestionGroupViewController: UIViewController {
         get { return questionGroupCaretaker.selectedQuestionGroup }
         set { questionGroupCaretaker.selectedQuestionGroup = newValue }
     }
+    
+    public override func viewDidLoad() {
+        super.viewDidLoad()
+        questionGroups.forEach {
+            print("\($0.title)" +
+                    "correctCount \($0.score.correctCount)" + "inccorrectCount \($0.score.incorrectCount)"
+            )
+        }
+    }
 }
 
 // MARK: - UITableViewDataSource
@@ -37,6 +46,13 @@ extension SelectQuestionGroupViewController: UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "QuestionGroupCell", for: indexPath) as! QuestionGroupCell
         let questionGroup = questionGroups[indexPath.row]
         cell.titleLabel.text = questionGroup.title
+        
+        // update progress
+        questionGroup.score.runningPercentage.addObserver(cell, options: [.initial, .new]) { [weak cell](percentage, _) in
+            DispatchQueue.main.async {
+                cell?.percentageLabel.text = String(format: "%.0f %%", round(100 * percentage))
+            }
+        }
         return cell
     }
     
@@ -44,22 +60,27 @@ extension SelectQuestionGroupViewController: UITableViewDataSource {
 
 // MARK: - UITableViewDelegate
 extension SelectQuestionGroupViewController: UITableViewDelegate {
-
+    
     // willSelect, load data for array here
     public func tableView(_ tableView: UITableView, willSelectRowAt indexPath: IndexPath) -> IndexPath? {
-    selectedQuestionGroup = questionGroups[indexPath.row]
-    return indexPath
-}
+        selectedQuestionGroup = questionGroups[indexPath.row]
+        return indexPath
+    }
     // hide the gray selected when tap
     public func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-    tableView.deselectRow(at: indexPath, animated: true)
+        tableView.deselectRow(at: indexPath, animated: true)
         
     }
     // prepare segue for pass data , move to child view controller
     public override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let viewController = segue.destination as? QuestionViewController else { return }
-        viewController.questionStrategy = appSettings.questionStrategy(for: selectedQuestionGroup)
-        viewController.delegate = self
+        if let viewController = segue.destination as? QuestionViewController {
+            viewController.questionStrategy = appSettings.questionStrategy(for: questionGroupCaretaker)
+            viewController.delegate = self
+        } else if  let navController = segue.destination as? UINavigationController,
+                   let viewController = navController.topViewController as? CreateQuestionGroupViewController {
+            viewController.delegate = self
+        }
+        
         
     }
 }
@@ -72,6 +93,23 @@ extension SelectQuestionGroupViewController: QuestionViewControllerDelegate {
     
     public func questionViewController(_ viewController: QuestionViewController, didComplete questionGroup: QuestionStrategy) {
         navigationController?.popToViewController(self, animated: true)
+    }
+    
+    
+}
+
+// MARK: - CreateQuestionGroupViewControllerDelegate
+extension SelectQuestionGroupViewController: CreateQuestionGroupViewControllerDelegate {
+    public func createQuestionGroupViewControllerDidCancel(_ viewController: CreateQuestionGroupViewController) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    public func createQuestionGroupViewController(_ viewController: CreateQuestionGroupViewController, created questionGroup: QuestionGroup) {
+        questionGroupCaretaker.questionGroups.append(questionGroup)
+        try? questionGroupCaretaker.save()
+        
+        dismiss(animated: true, completion: nil)
+        tableView.reloadData()
     }
     
     
