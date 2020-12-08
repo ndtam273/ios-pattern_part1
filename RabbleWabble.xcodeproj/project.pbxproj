@@ -30,6 +30,7 @@
 		F73FA138257E380E00216C09 /* NewQuestionGroup.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F73FA137257E380E00216C09 /* NewQuestionGroup.storyboard */; };
 		F7843BFA2578DB60005294A4 /* AppSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7843BF92578DB60005294A4 /* AppSettings.swift */; };
 		F7843BFD2578E52E005294A4 /* AppSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7843BFC2578E52E005294A4 /* AppSettingsViewController.swift */; };
+		F7851AA3257F1AA800A2623F /* QuestionGroupBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7851AA2257F1AA800A2623F /* QuestionGroupBuilder.swift */; };
 		F79E5CA02579F6AC0077B3F3 /* DiskCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79E5C9F2579F6AC0077B3F3 /* DiskCaretaker.swift */; };
 		F79E5CA3257A283D0077B3F3 /* QuestionGroupCaretaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = F79E5CA2257A283D0077B3F3 /* QuestionGroupCaretaker.swift */; };
 		F79E5CA6257A30BB0077B3F3 /* QuestionGroupData.json in Resources */ = {isa = PBXBuildFile; fileRef = F79E5CA5257A30BB0077B3F3 /* QuestionGroupData.json */; };
@@ -62,6 +63,7 @@
 		F73FA137257E380E00216C09 /* NewQuestionGroup.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NewQuestionGroup.storyboard; sourceTree = "<group>"; };
 		F7843BF92578DB60005294A4 /* AppSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettings.swift; sourceTree = "<group>"; };
 		F7843BFC2578E52E005294A4 /* AppSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppSettingsViewController.swift; sourceTree = "<group>"; };
+		F7851AA2257F1AA800A2623F /* QuestionGroupBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroupBuilder.swift; sourceTree = "<group>"; };
 		F79E5C9F2579F6AC0077B3F3 /* DiskCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiskCaretaker.swift; sourceTree = "<group>"; };
 		F79E5CA2257A283D0077B3F3 /* QuestionGroupCaretaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionGroupCaretaker.swift; sourceTree = "<group>"; };
 		F79E5CA5257A30BB0077B3F3 /* QuestionGroupData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = QuestionGroupData.json; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 		F73FA13A257E3FCC00216C09 /* Builders */ = {
 			isa = PBXGroup;
 			children = (
+				F7851AA2257F1AA800A2623F /* QuestionGroupBuilder.swift */,
 			);
 			path = Builders;
 			sourceTree = "<group>";
@@ -270,6 +273,7 @@
 				F7357AD825762CFC000439EA /* QuestionViewController.swift in Sources */,
 				F7357AF3257630E8000439EA /* Question.swift in Sources */,
 				F7357AD425762CFC000439EA /* AppDelegate.swift in Sources */,
+				F7851AA3257F1AA800A2623F /* QuestionGroupBuilder.swift in Sources */,
 				F73FA12A257DEE6D00216C09 /* Observable.swift in Sources */,
 				F7357B0025763405000439EA /* QuestionView.swift in Sources */,
 				F7357AF925763315000439EA /* QuestionGroupData.swift in Sources */,
